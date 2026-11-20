@@ -1,75 +1,70 @@
-<h1>Active Directory Home Lab</h1>
+<h1>Active Directory & Windows Server Lab</h1>
 
- 
-<h2>Description</h2>
-This project consists of a basic visual overview to creating an Active Directory Home Lab utilizing virtual machines. The focus is on establishing a functional Active Directory environment on a personal computer. These snapshots cover some key components such as deploying Windows Server operating systems, configuring domains, and implementing user accounts. A notable aspect of this project is the integration of PowerShell scripting for efficient automation. I provide a snapshot on utilizing PowerShell to generate and deploy 1,000 users seamlessly on the internal network. This project serves as a resource for someone seeking a brief understanding on Active Directory setup and highlights the key steps, including the role PowerShell has in streamlining administrative tasks within the context of a home lab environment.
-<br />
+<h2>Overview</h2>
+A guided personal lab, completed in late 2023, that builds a small Active Directory environment in Oracle VirtualBox. It is a learning project on a personal computer, not production work.
 
+<b>What it covers:</b>
 
-<h2>Languages and Utilities Used</h2>
+- Installing Windows Server on a virtual machine and promoting it to a domain controller with Active Directory
+- Creating a domain and assigning an IPv4 address on an internal network
+- Configuring NAT and routing (Remote Access) so clients on the internal network can reach the internet through the domain controller
+- Installing DHCP and setting a scope so client machines receive IP addresses automatically
+- Running an existing PowerShell script to create 1,000 user accounts in Active Directory (I executed the script; I did not write it)
+- Creating a second virtual machine (CLIENT1) and joining it to the domain
 
-- <b>PowerShell</b> 
+<h2>Tools and Environment</h2>
 
+- <b>Oracle VirtualBox</b> (virtualization), on a Windows 10 host PC
+- <b>Windows Server</b> (evaluation ISO) as the domain controller
+- <b>Windows client VM</b> (CLIENT1) joined to the domain
+- <b>PowerShell</b> (running the existing user-creation script)
 
-<h2>Environments Used </h2>
-
-- <b>Windows 10</b>
-- <b>Oracle Virtual Box</b>
-
-<h2>Program walk-through:</h2>
+<h2>Walk-through</h2>
 
 <p align="center">
-Download Oracle Virtual Box and Install Windows 10 ISO/Server on the 1st Virtual Machine (Domain Controller): <br/>
-<img src="https://imgur.com/jGnqwdC.png" height="80%" width="80%" alt="Active-Directory-Home-Lab"/>
+Download Oracle VirtualBox and install Windows Server on the first virtual machine (the domain controller): <br/>
+<img src="https://imgur.com/jGnqwdC.png" height="80%" width="80%" alt="VirtualBox manager and Windows Server setup on the domain controller VM"/>
 <br />
 <br />
-Rename networks on the Domain Controller for Home Internet and Internal Network: <br/>
-<img src="https://imgur.com/JbOd4ia.png" height="80%" width="80%" alt="Active-Directory-Home-Lab"/>
+Rename the network adapters for home internet and the internal network: <br/>
+<img src="https://imgur.com/JbOd4ia.png" height="80%" width="80%" alt="Renamed network adapters on the domain controller"/>
 <br />
 <br />
-Assign IP address for Internal Network: <br/>
-<img src="https://imgur.com/nyTHVhs.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Assign an IP address on the internal network: <br/>
+<img src="https://imgur.com/nyTHVhs.png" height="80%" width="80%" alt="IP address settings for the internal network adapter"/>
 <br />
 <br />
-Install Active Directory on the Domain Controller:  <br/>
-<img src="https://imgur.com/l7taOvZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Install Active Directory on the domain controller:  <br/>
+<img src="https://imgur.com/l7taOvZ.png" height="80%" width="80%" alt="Installing Active Directory Domain Services"/>
 <br />
 <br />
-Create Domain for Active Directory:  <br/>
-<img src="https://imgur.com/3GVmaLW.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Create the domain:  <br/>
+<img src="https://imgur.com/3GVmaLW.png" height="80%" width="80%" alt="Creating the Active Directory domain"/>
 <br />
 <br />
-Install Remote Access, configure NAT and routing so the clients on Internal Network can connect to the internet through the Domain Controller:  <br/>
-<img src="https://imgur.com/FdNXxIw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Install Remote Access and configure NAT and routing so clients on the internal network can reach the internet through the domain controller:  <br/>
+<img src="https://imgur.com/FdNXxIw.png" height="80%" width="80%" alt="Installing the Remote Access role"/>
 <br />
 <br />
-<img src="https://imgur.com/YsRJwO2.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Routing and Remote Access setup wizard with NAT selected: <br/>
+<img src="https://imgur.com/YsRJwO2.png" height="80%" width="80%" alt="Routing and Remote Access setup wizard with NAT selected"/>
 <br />
 <br />
-Install DHCP and Set DHCP scope on Domain Controller so when we create our 2nd Virtual Machine, client computers can automatically get an IP address:  <br/>
-<img src="https://imgur.com/YWEW3te.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<br />
-<br /> 
-Run Powershell script for users on the Active Directory: <br/>
-<img src="https://imgur.com/pRJwIlX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Install DHCP and set a DHCP scope on the domain controller so client computers get an IP address automatically:  <br/>
+<img src="https://imgur.com/YWEW3te.png" height="80%" width="80%" alt="Installing DHCP and creating a scope"/>
 <br />
 <br />
- <img src="https://imgur.com/lKBrWxQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+Run the existing PowerShell script to create users in Active Directory: <br/>
+<img src="https://imgur.com/pRJwIlX.png" height="80%" width="80%" alt="Running the PowerShell user-creation script"/>
 <br />
 <br />
-Create a 2nd Virtual Machine to connect to the Internal Network (CLIENT1) and join it to the domain:  <br/>
-<img src="https://imgur.com/7qmVmAA.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/lKBrWxQ.png" height="80%" width="80%" alt="PowerShell script run, continued"/>
 <br />
 <br />
-<img src="https://imgur.com/z9bIrnR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/> 
+Create a second virtual machine (CLIENT1) on the internal network and join it to the domain:  <br/>
+<img src="https://imgur.com/7qmVmAA.png" height="80%" width="80%" alt="Creating the CLIENT1 virtual machine and joining it to the domain"/>
+<br />
+<br />
+DHCP lease and the CLIENT1 computer account in Active Directory Users and Computers: <br/>
+<img src="https://imgur.com/z9bIrnR.png" height="80%" width="80%" alt="DHCP address lease and CLIENT1 computer account in Active Directory"/>
 </p>
-
-<!--
- ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
---!>
